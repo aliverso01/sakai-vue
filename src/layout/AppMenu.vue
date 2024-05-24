@@ -6,8 +6,98 @@ import AppMenuItem from './AppMenuItem.vue';
 const model = ref([
     {
         label: 'Home',
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }]
+        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
+
+        
+        {
+                label: 'Menu',
+                isTitle: true
+            },
+            {
+                label: 'Dashboard',
+                icon: 'ri-dashboard-line',
+                link: '/'
+            },
+            {
+                label: 'Atendimento',
+                isTitle: true
+            },
+            {
+                label: 'Pessoas',
+                icon: 'fas fa-users',
+                subItems: [
+                    {
+                        label: 'Cadastrar',
+                        link: '/pessoas/cadastrar'
+                    },
+                    {
+                        label: 'Consultar',
+                        link: '/lista_eleitor'
+                    }
+                ]
+            },
+            {
+                label: 'Agenda',
+                icon: 'far fa-calendar-alt',
+                link: '/list_home_agenda'
+            },
+            {
+                label: 'Geolocalização',
+                icon: 'ri-map-pin-line',
+                link: '/geolocalizacao'
+            },
+            {
+                label: 'Marketing',
+                isTitle: true
+            },
+            {
+                label: 'Marketing',
+                icon: 'fas fa-file-alt',
+                link: '/status_producao'
+            },
+            {
+                label: 'Administrativo',
+                isTitle: true
+            },
+            {
+                label: 'Contratações',
+                icon: 'fas fa-user-tie',
+                link: '/cadastrar_prestador_servico'
+            },
+            {
+                label: 'Frotas',
+                icon: 'fas fa-car',
+                link: '/cadastrar_frota'
+            },
+            {
+                label: 'Combustível',
+                icon: 'fas fa-gas-pump',
+                link: '/cadastrar_combustivel'
+            },
+            {
+                label: 'Demais despesas',
+                icon: 'fas fa-money-bill-wave',
+                link: '/cadastrar_despesa'
+            },
+            {
+                label: 'Organograma',
+                icon: 'fas fa-sitemap',
+                link: '/organograma'
+            },
+            {
+                label: 'Relatórios',
+                isTitle: true
+            },
+            {
+                label: 'Pessoas',
+                icon: 'far fa-chart-bar',
+                link: '/relatorios_pessoas'
+            }
+
+        ]
     },
+    
+    
     {
         label: 'UI Components',
         items: [
@@ -48,52 +138,6 @@ const model = ref([
         icon: 'pi pi-fw pi-briefcase',
         to: '/pages',
         items: [
-            {
-                label: 'Landing',
-                icon: 'pi pi-fw pi-globe',
-                to: '/landing'
-            },
-            {
-                label: 'Auth',
-                icon: 'pi pi-fw pi-user',
-                items: [
-                    {
-                        label: 'Login',
-                        icon: 'pi pi-fw pi-sign-in',
-                        to: '/auth/login'
-                    },
-                    {
-                        label: 'Error',
-                        icon: 'pi pi-fw pi-times-circle',
-                        to: '/auth/error'
-                    },
-                    {
-                        label: 'Access Denied',
-                        icon: 'pi pi-fw pi-lock',
-                        to: '/auth/access'
-                    }
-                ]
-            },
-            {
-                label: 'Crud',
-                icon: 'pi pi-fw pi-pencil',
-                to: '/pages/crud'
-            },
-            {
-                label: 'Timeline',
-                icon: 'pi pi-fw pi-calendar',
-                to: '/pages/timeline'
-            },
-            {
-                label: 'Not Found',
-                icon: 'pi pi-fw pi-exclamation-circle',
-                to: '/pages/notfound'
-            },
-            {
-                label: 'Empty',
-                icon: 'pi pi-fw pi-circle-off',
-                to: '/pages/empty'
-            }
         ]
     },
     {
@@ -176,11 +220,11 @@ const model = ref([
             <app-menu-item v-if="!item.separator" :item="item" :index="i"></app-menu-item>
             <li v-if="item.separator" class="menu-separator"></li>
         </template>
-        <li>
+        <!-- <li>
             <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank">
                 <img src="/layout/images/banner-primeblocks.png" alt="Prime Blocks" class="w-full mt-3" />
             </a>
-        </li>
+        </li> -->
     </ul>
 </template>
 
