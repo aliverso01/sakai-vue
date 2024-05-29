@@ -7,96 +7,66 @@ const model = ref([
     {
         label: 'Home',
         items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-
-        
-        {
-                label: 'Menu',
-                isTitle: true
-            },
-            {
-                label: 'Dashboard',
-                icon: 'ri-dashboard-line',
-                link: '/'
-            },
-            {
-                label: 'Atendimento',
-                isTitle: true
-            },
-            {
-                label: 'Pessoas',
-                icon: 'fas fa-users',
-                subItems: [
-                    {
-                        label: 'Cadastrar',
-                        link: '/pessoas/cadastrar'
-                    },
-                    {
-                        label: 'Consultar',
-                        link: '/lista_eleitor'
-                    }
-                ]
-            },
-            {
-                label: 'Agenda',
-                icon: 'far fa-calendar-alt',
-                link: '/list_home_agenda'
-            },
-            {
-                label: 'Geolocalização',
-                icon: 'ri-map-pin-line',
-                link: '/geolocalizacao'
-            },
-            {
-                label: 'Marketing',
-                isTitle: true
-            },
-            {
-                label: 'Marketing',
-                icon: 'fas fa-file-alt',
-                link: '/status_producao'
-            },
-            {
-                label: 'Administrativo',
-                isTitle: true
-            },
-            {
-                label: 'Contratações',
-                icon: 'fas fa-user-tie',
-                link: '/cadastrar_prestador_servico'
-            },
-            {
-                label: 'Frotas',
-                icon: 'fas fa-car',
-                link: '/cadastrar_frota'
-            },
-            {
-                label: 'Combustível',
-                icon: 'fas fa-gas-pump',
-                link: '/cadastrar_combustivel'
-            },
-            {
-                label: 'Demais despesas',
-                icon: 'fas fa-money-bill-wave',
-                link: '/cadastrar_despesa'
-            },
-            {
-                label: 'Organograma',
-                icon: 'fas fa-sitemap',
-                link: '/organograma'
-            },
-            {
-                label: 'Relatórios',
-                isTitle: true
-            },
-            {
-                label: 'Pessoas',
-                icon: 'far fa-chart-bar',
-                link: '/relatorios_pessoas'
-            }
-
         ]
     },
     
+            {
+                label: 'Atendimento',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'Pessoas',
+                        icon: 'pi pi-fw pi-bookmark',
+                        items: [
+                            { label: 'Cadastrar', icon: 'pi pi-fw pi-bookmark' },
+                            { label: 'Consultar', icon: 'pi pi-fw pi-bookmark' }
+                        ]
+                    },
+                    {
+                    label: 'Agenda',
+                    icon: 'pi pi-fw pi-bookmark',
+                },
+                {
+                    label: 'Geolocalização',
+                    icon: 'pi pi-fw pi-bookmark',
+                }]
+            },
+            {
+                label: 'Marketing',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'Planejamento',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },]
+            },
+            {
+                label: 'administrativo',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'Contratações',
+                        icon: 'pi pi-fw pi-bookmark',
+                        
+                    },
+                    {
+                    label: 'Frotas',
+                    icon: 'pi pi-fw pi-bookmark',
+                },
+                {
+                    label: 'Combustível',
+                    icon: 'pi pi-fw pi-bookmark',
+                },
+            {
+                label: 'despesas',
+                icon: 'pi pi-fw pi-bookmark',
+            },
+            {
+                label: 'Organograma',
+                icon: 'pi pi-fw pi-bookmark',
+            }]
+            },
+
     
     {
         label: 'UI Components',

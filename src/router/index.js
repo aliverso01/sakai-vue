@@ -13,6 +13,7 @@ const router = createRouter({
                     name: 'dashboard',
                     component: () => import('@/views/Dashboard.vue')
                 },
+                
                 {
                     path: '/uikit/formlayout',
                     name: 'formlayout',
@@ -91,10 +92,16 @@ const router = createRouter({
                         }
                     ]
                 },
+                
                 {
                     path: '/uikit/message',
                     name: 'message',
                     component: () => import('@/views/uikit/Messages.vue')
+                },
+                {
+                    path: '/lista/pessoas',
+                    name: 'listaPessoas',
+                    component: () => import('@/views/pages/pessoas/pessoas.vue')
                 },
                 {
                     path: '/uikit/file',
