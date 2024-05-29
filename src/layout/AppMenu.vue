@@ -66,6 +66,27 @@ const model = ref([
                 icon: 'pi pi-fw pi-bookmark',
             }]
             },
+            {
+                label: 'Relatórios',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'Financeiro',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                    label: 'Operacional',
+                    icon: 'pi pi-fw pi-bookmark',
+                },
+                {
+                    label: 'Marketing',
+                    icon: 'pi pi-fw pi-bookmark',
+                },
+                {
+                    label: 'Administrativo',
+                    icon: 'pi pi-fw pi-bookmark',
+                }]
+            },
 
     
     {
