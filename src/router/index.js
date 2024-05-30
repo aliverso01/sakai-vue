@@ -99,9 +99,14 @@ const router = createRouter({
                     component: () => import('@/views/uikit/Messages.vue')
                 },
                 {
-                    path: '/lista/pessoas',
-                    name: 'listaPessoas',
-                    component: () => import('@/views/pages/pessoas/pessoas.vue')
+                    path: '/cadastrar/pessoas',
+                    name: 'CadastrarPessoas',
+                    component: () => import('@/views/pages/pessoas/CadastrarPessoas.vue')
+                },
+                {
+                    path: '/consulta/pessoas',
+                    name: 'ConsultarPessoas',
+                    component: () => import('@/views/pages/pessoas/ConsultarPessoas.vue')
                 },
                 {
                     path: '/uikit/file',

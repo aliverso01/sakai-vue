@@ -127,7 +127,7 @@ const calculateCustomerTotal = (name) => {
     <div class="grid">
         <div class="col-12">
             <div class="card">
-                <h5>Filter Menu</h5>
+                <h5>Pessoas Cadastradas</h5>
                 <DataTable
                     :value="customer1"
                     :paginator="true"
@@ -143,32 +143,32 @@ const calculateCustomerTotal = (name) => {
                 >
                     <template #header>
                         <div class="flex justify-content-between flex-column sm:flex-row">
-                            <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter1()" />
+                            <Button type="button" icon="pi pi-filter-slash" label="Limpar" outlined @click="clearFilter1()" />
                             <IconField iconPosition="left">
                                 <InputIcon class="pi pi-search" />
-                                <InputText v-model="filters1['global'].value" placeholder="Keyword Search" style="width: 100%" />
+                                <InputText v-model="filters1['global'].value" placeholder="Procurar" style="width: 100%" />
                             </IconField>
                         </div>
                     </template>
-                    <template #empty> No customers found. </template>
-                    <template #loading> Loading customers data. Please wait. </template>
-                    <Column field="name" header="Name" style="min-width: 12rem">
+                    <template #empty> Nenhuma pessoa encontrada </template>
+                    <template #loading> Carregando. Espere um pouco. </template>
+                    <Column field="name" header="Nome" style="min-width: 12rem">
                         <template #body="{ data }">
                             {{ data.name }}
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by name" />
+                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Procurar por nome" />
                         </template>
                     </Column>
-                    <Column header="Country" filterField="country.name" style="min-width: 12rem">
+                    <Column header="Endereço" filterField="country.name" style="min-width: 12rem">
                         <template #body="{ data }">
                             <div class="flex align-items-center gap-2">
-                                <img alt="flag" src="/demo/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" />
+                                <!-- <img alt="flag" src="/demo/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" /> -->
                                 <span>{{ data.country.name }}</span>
                             </div>
                         </template>
                         <template #filter="{ filterModel }">
-                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Search by country" />
+                            <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Procurar por Endereço" />
                         </template>
                         <template #filterclear="{ filterCallback }">
                             <Button type="button" icon="pi pi-times" @click="filterCallback()" severity="secondary"></Button>
@@ -177,10 +177,10 @@ const calculateCustomerTotal = (name) => {
                             <Button type="button" icon="pi pi-check" @click="filterCallback()" severity="success"></Button>
                         </template>
                     </Column>
-                    <Column header="Agent" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
+                    <Column header="Vínculo" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                         <template #body="{ data }">
                             <div class="flex align-items-center gap-2">
-                                <img :alt="data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${data.representative.image}`" style="width: 32px" />
+                                <!-- <img :alt="data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${data.representative.image}`" style="width: 32px" /> -->
                                 <span>{{ data.representative.name }}</span>
                             </div>
                         </template>
@@ -252,162 +252,6 @@ const calculateCustomerTotal = (name) => {
             </div>
         </div>
 
-        <div class="col-12">
-            <div class="card">
-                <h5>Frozen Columns</h5>
-                <ToggleButton v-model="idFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Unfreeze Id" offLabel="Freeze Id" style="width: 10rem" />
-
-                <DataTable :value="customer2" :scrollable="true" scrollHeight="400px" :loading="loading2" scrollDirection="both" class="mt-3">
-                    <Column field="name" header="Name" style="min-width: 200px" frozen></Column>
-                    <Column field="id" header="Id" style="min-width: 100px" :frozen="idFrozen"></Column>
-                    <Column field="country.name" header="Country" :style="{ width: '200px' }">
-                        <template #body="{ data }">
-                            <div class="flex align-items-center gap-2">
-                                <img alt="flag" src="/demo/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" />
-                                <span>{{ data.country.name }}</span>
-                            </div>
-                        </template>
-                    </Column>
-                    <Column field="date" header="Date" style="min-width: 200px"></Column>
-                    <Column field="company" header="Company" style="min-width: 200px"></Column>
-                    <Column field="status" header="Status" style="min-width: 200px">
-                        <template #body="{ data }">
-                            <Tag :severity="getSeverity(data.status)">{{ data.status.toUpperCase() }}</Tag>
-                        </template>
-                    </Column>
-                    <Column field="activity" header="Activity" style="min-width: 200px"></Column>
-                    <Column field="representative.name" header="Representative" style="min-width: 200px">
-                        <template #body="{ data }">
-                            <div class="flex align-items-center gap-2">
-                                <img :alt="data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${data.representative.image}`" style="width: 32px" />
-                                <span>{{ data.representative.name }}</span>
-                            </div>
-                        </template>
-                    </Column>
-                    <Column field="balance" header="Balance" style="min-width: 200px" frozen alignFrozen="right">
-                        <template #body="{ data }">
-                            <span class="text-bold">{{ formatCurrency(data.balance) }}</span>
-                        </template>
-                    </Column>
-                </DataTable>
-            </div>
-        </div>
-
-        <div class="col-12">
-            <div class="card">
-                <h5>Row Expand</h5>
-                <DataTable :value="products" v-model:expandedRows="expandedRows" dataKey="id" tableStyle="min-width: 60rem">
-                    <template #header>
-                        <div>
-                            <Button icon="pi pi-plus" label="Expand All" @click="expandAll" class="mr-2 mb-2" />
-                            <Button icon="pi pi-minus" label="Collapse All" @click="collapseAll" class="mb-2" />
-                        </div>
-                    </template>
-                    <Column :expander="true" headerStyle="width: 3rem" />
-                    <Column field="name" header="Name" :sortable="true">
-                        <template #body="slotProps">
-                            {{ slotProps.data.name }}
-                        </template>
-                    </Column>
-                    <Column header="Image">
-                        <template #body="slotProps">
-                            <img :src="'/demo/images/product/' + slotProps.data.image" :alt="slotProps.data.image" class="shadow-2" width="100" />
-                        </template>
-                    </Column>
-                    <Column field="price" header="Price" :sortable="true">
-                        <template #body="slotProps">
-                            {{ formatCurrency(slotProps.data.price) }}
-                        </template>
-                    </Column>
-                    <Column field="category" header="Category" :sortable="true">
-                        <template #body="slotProps">
-                            {{ formatCurrency(slotProps.data.category) }}
-                        </template></Column
-                    >
-                    <Column field="rating" header="Reviews" :sortable="true">
-                        <template #body="slotProps">
-                            <Rating :modelValue="slotProps.data.rating" :readonly="true" :cancel="false" />
-                        </template>
-                    </Column>
-                    <Column field="inventoryStatus" header="Status" :sortable="true">
-                        <template #body="slotProps">
-                            <Tag :severity="getBadgeSeverity(slotProps.data.inventoryStatus)">{{ slotProps.data.inventoryStatus }}</Tag>
-                        </template>
-                    </Column>
-                    <template #expansion="slotProps">
-                        <div class="p-3">
-                            <h5>Orders for {{ slotProps.data.name }}</h5>
-                            <DataTable :value="slotProps.data.orders">
-                                <Column field="id" header="Id" :sortable="true">
-                                    <template #body="slotProps">
-                                        {{ slotProps.data.id }}
-                                    </template>
-                                </Column>
-                                <Column field="customer" header="Customer" :sortable="true">
-                                    <template #body="slotProps">
-                                        {{ slotProps.data.customer }}
-                                    </template>
-                                </Column>
-                                <Column field="date" header="Date" :sortable="true">
-                                    <template #body="slotProps">
-                                        {{ slotProps.data.date }}
-                                    </template>
-                                </Column>
-                                <Column field="amount" header="Amount" :sortable="true">
-                                    <template #body="slotProps">
-                                        {{ formatCurrency(slotProps.data.amount) }}
-                                    </template>
-                                </Column>
-                                <Column field="status" header="Status" :sortable="true">
-                                    <template #body="slotProps">
-                                        <span :class="'order-badge order-' + (slotProps.data.status ? slotProps.data.status.toLowerCase() : '')">{{ slotProps.data.status }}</span>
-                                    </template>
-                                </Column>
-                                <Column headerStyle="width:4rem">
-                                    <template #body>
-                                        <Button icon="pi pi-search" />
-                                    </template>
-                                </Column>
-                            </DataTable>
-                        </div>
-                    </template>
-                </DataTable>
-            </div>
-        </div>
-
-        <div class="col-12">
-            <div class="card">
-                <h5>Subheader Grouping</h5>
-                <DataTable :value="customer3" rowGroupMode="subheader" groupRowsBy="representative.name" sortMode="single" sortField="representative.name" :sortOrder="1" scrollable scrollHeight="400px">
-                    <Column field="representative.name" header="Representative"></Column>
-                    <Column field="name" header="Name" style="min-width: 200px"></Column>
-                    <Column field="country" header="Country" style="min-width: 200px">
-                        <template #body="{ data }">
-                            <div class="flex align-items-center gap-2">
-                                <img alt="flag" src="/demo/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" />
-                                <span>{{ data.country.name }}</span>
-                            </div>
-                        </template>
-                    </Column>
-                    <Column field="company" header="Company" style="min-width: 200px"></Column>
-                    <Column field="status" header="Status" style="min-width: 200px">
-                        <template #body="slotProps">
-                            <Tag :severity="getSeverity(slotProps.data.status)">{{ slotProps.data.status.toUpperCase() }}</Tag>
-                        </template>
-                    </Column>
-                    <Column field="date" header="Date" style="min-width: 200px"></Column>
-                    <template #groupheader="slotProps">
-                        <div class="flex align-items-center gap-2">
-                            <img :alt="slotProps.data.representative.name" :src="'/demo/images/avatar/' + slotProps.data.representative.image" width="32" style="vertical-align: middle" />
-                            <span>{{ slotProps.data.representative.name }}</span>
-                        </div>
-                    </template>
-                    <template #groupfooter="slotProps">
-                        <td style="text-align: right" class="text-bold pr-6">Total Customers: {{ calculateCustomerTotal(slotProps.data.representative.name) }}</td>
-                    </template>
-                </DataTable>
-            </div>
-        </div>
     </div>
 </template>
 

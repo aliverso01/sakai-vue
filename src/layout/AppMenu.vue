@@ -18,8 +18,8 @@ const model = ref([
                         label: 'Pessoas',
                         icon: 'pi pi-fw pi-bookmark',
                         items: [
-                            { label: 'Cadastrar', icon: 'pi pi-fw pi-bookmark' },
-                            { label: 'Consultar', icon: 'pi pi-fw pi-bookmark' }
+                            { label: 'Cadastrar', icon: 'pi pi-fw pi-bookmark', to: '/cadastrar/pessoas'},
+                            { label: 'Consultar', icon: 'pi pi-fw pi-bookmark', to: '/consulta/pessoas' }
                         ]
                     },
                     {
