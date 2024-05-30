@@ -109,6 +109,11 @@ const router = createRouter({
                     component: () => import('@/views/pages/pessoas/ConsultarPessoas.vue')
                 },
                 {
+                    path: '/agenda/agendamento',
+                    name: 'Agendamento',
+                    component: () => import('@/views/pages/agenda/Agendamento.vue')
+                },
+                {
                     path: '/uikit/file',
                     name: 'file',
                     component: () => import('@/views/uikit/File.vue')

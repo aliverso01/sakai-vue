@@ -160,10 +160,17 @@ const calculateCustomerTotal = (name) => {
                             <InputText type="text" v-model="filterModel.value" class="p-column-filter" placeholder="Procurar por nome" />
                         </template>
                     </Column>
+                    <Column header="Tipo" filterField="balance" dataType="numeric" style="min-width: 10rem">
+                        <template #body="{ data }">
+                            {{ formatCurrency(data.balance) }}
+                        </template>
+                        <template #filter="{ filterModel }">
+                            <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
+                        </template>
+                    </Column>
                     <Column header="Endereço" filterField="country.name" style="min-width: 12rem">
                         <template #body="{ data }">
                             <div class="flex align-items-center gap-2">
-                                <!-- <img alt="flag" src="/demo/images/flag/flag_placeholder.png" :class="`flag flag-${data.country.code}`" style="width: 24px" /> -->
                                 <span>{{ data.country.name }}</span>
                             </div>
                         </template>
@@ -180,7 +187,6 @@ const calculateCustomerTotal = (name) => {
                     <Column header="Vínculo" filterField="representative" :showFilterMatchModes="false" :filterMenuStyle="{ width: '14rem' }" style="min-width: 14rem">
                         <template #body="{ data }">
                             <div class="flex align-items-center gap-2">
-                                <!-- <img :alt="data.representative.name" :src="`https://primefaces.org/cdn/primevue/images/avatar/${data.representative.image}`" style="width: 32px" /> -->
                                 <span>{{ data.representative.name }}</span>
                             </div>
                         </template>
@@ -196,20 +202,12 @@ const calculateCustomerTotal = (name) => {
                             </MultiSelect>
                         </template>
                     </Column>
-                    <Column header="Date" filterField="date" dataType="date" style="min-width: 10rem">
+                    <Column header="Rede" filterField="date" dataType="date" style="min-width: 10rem">
                         <template #body="{ data }">
                             {{ formatDate(data.date) }}
                         </template>
                         <template #filter="{ filterModel }">
                             <Calendar v-model="filterModel.value" dateFormat="mm/dd/yy" placeholder="mm/dd/yyyy" />
-                        </template>
-                    </Column>
-                    <Column header="Balance" filterField="balance" dataType="numeric" style="min-width: 10rem">
-                        <template #body="{ data }">
-                            {{ formatCurrency(data.balance) }}
-                        </template>
-                        <template #filter="{ filterModel }">
-                            <InputNumber v-model="filterModel.value" mode="currency" currency="USD" locale="en-US" />
                         </template>
                     </Column>
                     <Column field="status" header="Status" :filterMenuStyle="{ width: '14rem' }" style="min-width: 12rem">
@@ -228,19 +226,7 @@ const calculateCustomerTotal = (name) => {
                             </Dropdown>
                         </template>
                     </Column>
-                    <Column field="activity" header="Activity" :showFilterMatchModes="false" style="min-width: 12rem">
-                        <template #body="{ data }">
-                            <ProgressBar :value="data.activity" :showValue="false" style="height: 0.5rem"></ProgressBar>
-                        </template>
-                        <template #filter="{ filterModel }">
-                            <Slider v-model="filterModel.value" :range="true" class="m-3"></Slider>
-                            <div class="flex align-items-center justify-content-between px-2">
-                                <span>{{ filterModel.value ? filterModel.value[0] : 0 }}</span>
-                                <span>{{ filterModel.value ? filterModel.value[1] : 100 }}</span>
-                            </div>
-                        </template>
-                    </Column>
-                    <Column field="verified" header="Verified" dataType="boolean" bodyClass="text-center" style="min-width: 8rem">
+                    <Column field="verified" header="Verificação" dataType="boolean" bodyClass="text-center" style="min-width: 8rem">
                         <template #body="{ data }">
                             <i class="pi" :class="{ 'text-green-500 pi-check-circle': data.verified, 'text-pink-500 pi-times-circle': !data.verified }"></i>
                         </template>

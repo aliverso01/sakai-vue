@@ -25,6 +25,7 @@ const model = ref([
                     {
                     label: 'Agenda',
                     icon: 'pi pi-fw pi-bookmark',
+                    to : '/agenda/agendamento'
                 },
                 {
                     label: 'Geolocalização',
