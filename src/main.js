@@ -106,6 +106,14 @@ import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
 
+//leaflet
+import 'leaflet/dist/leaflet.css';
+
+
+//bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import BlockViewer from '@/components/BlockViewer.vue';
 
 import '@/assets/styles.scss';

@@ -30,6 +30,7 @@ const model = ref([
                 {
                     label: 'Geolocalização',
                     icon: 'pi pi-fw pi-bookmark',
+                    to : '/geolocalizacao'
                 }]
             },
             {

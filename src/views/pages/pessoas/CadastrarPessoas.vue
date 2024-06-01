@@ -8,10 +8,7 @@ import InputGroupAddon from 'primevue/inputgroupaddon';
 
             <!-- Informações Pessoais -->
             <div class="p-fluid formgrid grid">
-                <div class="col-md-12 md:col-12">
-                    <label for="">Importar foto:</label>
-                <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" chooseLabel="Escolher" customUpload @uploader="customBase64Uploader" />
-            </div>
+
                 <div class="md:col-5 col-12">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" class="p-inputtext p-component">

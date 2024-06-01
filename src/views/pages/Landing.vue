@@ -12,7 +12,7 @@ const smoothScroll = (id) => {
 };
 
 const logoUrl = computed(() => {
-    return `layout/images/${layoutConfig.darkTheme.value ? 'logo-white' : 'logo-branca'}.png`;
+    return `layout/images/${layoutConfig.darkTheme.value ? 'logo' : 'logo'}.png`;
 });
 </script>
 
@@ -20,7 +20,7 @@ const logoUrl = computed(() => {
     <div class="surface-0 flex justify-content-center">
         <div id="home" class="landing-wrapper overflow-hidden">
             <div class="py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 flex align-items-center justify-content-between relative lg:static mb-3">
-                <a class="flex align-items-center" href="#"> <img :src="logoUrl" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2" /><span class="text-900 font-medium text-2xl line-height-3 mr-8">SAKAI</span> </a>
+                <a class="flex align-items-center" href="#"> <img :src="logoUrl" alt="Sakai Logo" height="50" class="mr-0 lg:mr-2" /><span class="text-900 font-medium text-2xl line-height-3 mr-8"></span> </a>
                 <a class="cursor-pointer block lg:hidden text-700 p-ripple" v-ripple v-styleclass="{ selector: '@next', enterClass: 'hidden', leaveToClass: 'hidden', hideOnOutsideClick: true }">
                     <i class="pi pi-bars text-4xl"></i>
                 </a>
@@ -33,17 +33,17 @@ const logoUrl = computed(() => {
                         </li>
                         <li>
                             <a @click="smoothScroll('#features')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Features</span>
+                                <span>Caracteristicas</span>
                             </a>
                         </li>
                         <li>
                             <a @click="smoothScroll('#highlights')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Highlights</span>
+                                <span>Destaques</span>
                             </a>
                         </li>
                         <li>
                             <a @click="smoothScroll('#pricing')" class="flex m-0 md:ml-5 px-0 py-3 text-900 font-medium line-height-3 p-ripple" v-ripple>
-                                <span>Pricing</span>
+                                <span>Preço</span>
                             </a>
                         </li>
                     </ul>
@@ -60,9 +60,9 @@ const logoUrl = computed(() => {
                 style="background: linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), radial-gradient(77.36% 256.97% at 77.36% 57.52%, rgb(238, 239, 175) 0%, rgb(195, 227, 250) 100%); clip-path: ellipse(150% 87% at 93% 13%)"
             >
                 <div class="mx-4 md:mx-8 mt-0 md:mt-4">
-                    <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">Eu sem integer</span>eget magna fermentum</h1>
-                    <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Sed blandit libero volutpat sed cras. Fames ac turpis egestas integer. Placerat in egestas erat...</p>
-                    <Button label="Get Started" class="p-button-rounded text-xl border-none mt-5 bg-blue-500 font-normal text-white line-height-3 px-3"></Button>
+                    <h1 class="text-6xl font-bold text-gray-900 line-height-2"><span class="font-light block">O seu sistema de </span>Controle de Gabinete</h1>
+                    <p class="font-normal text-2xl line-height-3 md:mt-3 text-gray-700">Tenha total controle da sua gestão na palma da mão com o Oráculo Político.</p>
+                    <Button label="Comece agora" class="p-button-rounded text-xl border-none mt-5 bg-blue-500 font-normal text-white line-height-3 px-3"></Button>
                 </div>
                 <div class="flex justify-content-center md:justify-content-end">
                     <img src="/demo/images/landing/screen-1.png" alt="Hero Image" class="w-9 md:w-auto" />
@@ -271,7 +271,7 @@ const logoUrl = computed(() => {
                             <div class="my-5 text-center">
                                 <span class="text-5xl font-bold mr-2 text-900">$0</span>
                                 <span class="text-600">per month</span>
-                                <Button label="Get Started" class="block mx-auto mt-4 p-button-rounded border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
+                                <Button label="Comece agora" class="block mx-auto mt-4 p-button-rounded border-none ml-3 font-light line-height-2 bg-blue-500 text-white"></Button>
                             </div>
                             <Divider class="w-full bg-surface-200"></Divider>
                             <ul class="my-5 list-none p-0 flex text-900 flex-column">
@@ -363,8 +363,8 @@ const logoUrl = computed(() => {
                 <div class="grid justify-content-between">
                     <div class="col-12 md:col-2" style="margin-top: -1.5rem">
                         <a @click="smoothScroll('#home')" class="flex flex-wrap align-items-center justify-content-center md:justify-content-start md:mb-0 mb-3 cursor-pointer">
-                            <img :src="logoUrl" alt="footer sections" width="50" height="50" class="mr-2" />
-                            <h4 class="font-medium text-3xl text-900">SAKAI</h4>
+                            <img :src="logoUrl" alt="footer sections" width="150" height="50" class="mr-2" />
+                            <h4 class="font-medium text-3xl text-900"></h4>
                         </a>
                     </div>
 

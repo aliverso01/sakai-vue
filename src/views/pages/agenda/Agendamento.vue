@@ -1,3 +1,20 @@
 <template>
-    <h1>teste</h1>
+    <div id="app">
+        <FullCalendar/>
+    </div>
 </template>
+
+<script>
+import FullCalendar from '@/components/FullCalendar.vue';
+
+export default {
+    name: 'Agendamento',
+    components: {
+        FullCalendar,
+    },
+};
+</script>
+
+<style>
+/* Add global styles here, if needed */
+</style>

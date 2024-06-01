@@ -157,7 +157,14 @@ const router = createRouter({
                     path: '/documentation',
                     name: 'documentation',
                     component: () => import('@/views/utilities/Documentation.vue')
-                }
+                },
+                {
+                    path: '/geolocalizacao',
+                    name: 'geolocalizacao',
+                    component: () => import('@/views/pages/geolocalizacao/Mapa.vue')
+                },
+
+
             ]
         },
         {
